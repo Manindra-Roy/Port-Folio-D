@@ -4,8 +4,14 @@ import { projects } from "../constants";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useMediaQuery } from "react-responsive";
 
 const Works = () => {
+  const isMobileXs = useMediaQuery({ maxWidth: 360 });
+  const isMobileSm = useMediaQuery({ maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
   const overlayRefs = useRef([]);
   const previewRef = useRef(null);
 
@@ -138,7 +144,7 @@ const Works = () => {
             {/* divider */}
             <div className="w-full h-0.5 bg-black/80" />
             {/* framework */}
-            <div className="flex px-10 text-xs leading-loose uppercase transtion-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12">
+            <div className={`flex px-10 text-xs leading-loose transtion-all duration-500 md:text-sm ${isMobileXs?"gap-x-2":"gap-x-5 uppercase"} md:group-hover:px-12`}>
               {project.frameworks.map((framework) => (
                 <p
                   key={framework.id}

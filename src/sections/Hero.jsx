@@ -5,6 +5,10 @@ import { useMediaQuery } from "react-responsive";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import AnimatedHomeSection from "../components/AnimatedHomeSection";
 const Hero = () => {
+  const isMobileSm = useMediaQuery({ maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const text = `I help growing brands and startups gain an
 unfair advantage through premium
@@ -22,15 +26,24 @@ results driven webs/apps`;
       />
       <figure
         className="absolute inset-0 -z-20"
-        style={{ width: "100vw", height: "100vh" }}
+        style={{ width: "100dvw", height: "100dvh" }}
       >
         <Canvas
           shadows
-          camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
+          camera={{
+            position: [0, 0, isMobile ? -30 : -10],
+            fov: 17.5,
+            near: 1,
+            far: isMobile ? 50 : 20,
+          }}
         >
           <ambientLight intensity={0.5} />
-          <Float speed={0.5} rotationIntensity={0} floatIntensity={1}>
-            <Planet scale={isMobile ? 0.5 : 1} />
+          <Float
+            speed={0.5}
+            rotationIntensity={0}
+            floatIntensity={isMobile ? 2 : 1}
+          >
+            <Planet scale={isMobile ? 0.7 : 1} />
           </Float>
           <Environment resolution={256}>
             <group rotation={[-Math.PI / 3, 4, 1]}>

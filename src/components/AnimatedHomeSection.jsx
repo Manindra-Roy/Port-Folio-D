@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { AnimatedHomeTextLines } from "../components/AnimatedHomeTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
+
 const AnimatedHomeSection = ({
   subTitle,
   title,
@@ -10,6 +12,13 @@ const AnimatedHomeSection = ({
   textColor,
   withScrollTrigger = false,
 }) => {
+  const isMobileXs = useMediaQuery({ maxWidth: 360 });
+  const isMobileSm = useMediaQuery({ maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
+  const isMobile = useMediaQuery({ maxWidth: 853 });
+  console.log(window.innerWidth);
   const contextRef = useRef(null);
   const headerRef = useRef(null);
   const shouldSplitTitle = title.includes(" ");
@@ -44,16 +53,18 @@ const AnimatedHomeSection = ({
       <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>
         <div
           ref={headerRef}
-          className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
+          className={`flex flex-col justify-center gap-12 pt-16 sm:gap-16`}
         >
           <p
-            className={`text-sm font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
+            className={`${isMobileXs||isMobileSm?"text-xs":"text-sm"} font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
           >
             {subTitle}
           </p>
           <div className="px-10">
             <h1
-              className={`flex flex-col gap-12 uppercase banner-text-responsive sm:gap-16 md:block ${textColor}`}
+              className={`flex flex-col ${
+                isMobileXs ? "gap-6" : "gap-12"
+              } uppercase banner-text-responsive sm:gap-16 md:block ${textColor} ${isMobileXs||isMobileSm?"text-5xl":""}`}
             >
               {titleParts.map((part, index) => (
                 <span key={index}>{part} </span>
@@ -62,12 +73,12 @@ const AnimatedHomeSection = ({
           </div>
         </div>
       </div>
-      <div className={`relative px-10 ${textColor}`}>
+      <div className={`relative ${isMobileXs?"px-10":"px-10"} ${textColor}`}>
         <div className="absolute inset-x-0 border-t-2" />
         <div className="py-12 sm:py-16 text-end">
           <AnimatedHomeTextLines
             text={text}
-            className={`font-light uppercase value-text-responsive ${textColor}`}
+            className={`font-light uppercase value-text-responsive ${textColor} ${isMobileXs||isMobileSm?"text-lg":""}`}
           />
         </div>
       </div>

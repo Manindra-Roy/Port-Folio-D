@@ -3,8 +3,14 @@ import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { AnimatedTextLines } from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
 
 const About = () => {
+  const isMobileXs = useMediaQuery({ maxWidth: 360 });
+  const isMobileSm = useMediaQuery({ maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
   const text = `Passionate about clean architecture
     I build scalable, high-performance solutions
     from prototype to production`;
@@ -54,7 +60,7 @@ const About = () => {
           alt="man"
           className="w-md rounded-3xl"
         />
-        <AnimatedTextLines text={aboutText} className={"w-full"} />
+        <AnimatedTextLines text={aboutText} className={`w-full ${isMobileXs?"text-lg":""}`} />
       </div>
     </section>
   );

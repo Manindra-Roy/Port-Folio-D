@@ -2,8 +2,10 @@ import React, { useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
 
 export function Planet(props) {
+  const isMobile = useMediaQuery({ maxWidth: 853 });
   const group = useRef(null);
   const { nodes, materials, animations } = useGLTF("/models/Planet.glb");
   const { actions } = useAnimations(animations, group);
@@ -50,7 +52,7 @@ export function Planet(props) {
       {...props}
       dispose={null}
       scale={0.01}
-      position={[0, 0.5, 0]}
+      position={[0, isMobile ? 2.25 : 0.5, 0]}
       rotation={[0, Math.PI / 2, 0]}
     >
       <group name="Sketchfab_Scene">
