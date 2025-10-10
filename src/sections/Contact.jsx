@@ -82,9 +82,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Marquee items={items} className="text-white bg-transparent" />
+      <Marquee items={items} className={`${isMobileXs ? "hidden" : ""} text-white bg-transparent`} />
     </section>
   );
 };
-
+    
 export default Contact;

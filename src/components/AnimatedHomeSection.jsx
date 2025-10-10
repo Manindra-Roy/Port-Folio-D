@@ -78,7 +78,7 @@ const AnimatedHomeSection = ({
         <div className="py-12 sm:py-16 text-end">
           <AnimatedHomeTextLines
             text={text}
-            className={`font-light uppercase value-text-responsive ${textColor} ${isMobileXs||isMobileSm?"text-lg":""}`}
+            className={`font-light uppercase value-text-responsive ${textColor} ${isMobileXs||isMobileSm?"text-lg text-left":""}`}
           />
         </div>
       </div>

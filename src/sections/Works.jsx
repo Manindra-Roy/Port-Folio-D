@@ -24,6 +24,21 @@ const Works = () => {
   const moveX = useRef(null);
   const moveY = useRef(null);
 
+  if (isMobileXs) {
+    useGSAP(() => {
+      gsap.to("#work", {
+        scale: 0.95,
+        scrollTrigger: {
+          trigger: "#work",
+          start: "bottom 80%",
+          end: "bottom 20%",
+          scrub: true,
+          markers: false,
+        },
+        ease: "power1.inOut",
+      });
+    }, []);
+  }
   useGSAP(() => {
     moveX.current = gsap.quickTo(previewRef.current, "x", {
       duration: 1.5,
@@ -106,7 +121,12 @@ const Works = () => {
   };
 
   return (
-    <section id="work" className="flex flex-col min-h-screen">
+    <section
+      id="work"
+      className={`flex flex-col min-h-screen ${
+        isMobileXs ? "bg-gold rounded-t-4xl rounded-b-4xl" : "bg-whicte"
+      }`}
+    >
       <AnimatedHeaderSection
         subTitle={"Logic meets Aesthetics, Seamlessly"}
         title={"Works"}
@@ -144,7 +164,11 @@ const Works = () => {
             {/* divider */}
             <div className="w-full h-0.5 bg-black/80" />
             {/* framework */}
-            <div className={`flex px-10 text-xs leading-loose transtion-all duration-500 md:text-sm ${isMobileXs?"gap-x-2":"gap-x-5 uppercase"} md:group-hover:px-12`}>
+            <div
+              className={`flex px-10 text-xs leading-loose transtion-all duration-500 md:text-sm ${
+                isMobileXs ? "gap-x-2" : "gap-x-5 uppercase"
+              } md:group-hover:px-12`}
+            >
               {project.frameworks.map((framework) => (
                 <p
                   key={framework.id}
@@ -172,7 +196,7 @@ const Works = () => {
         {/* desktop Flaoting preview image */}
         <div
           ref={previewRef}
-          className="fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[750px] md:block hidden opacity-0"
+          className="fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[650px] md:block hidden opacity-0"
         >
           {currentIndex !== null && (
             <img
