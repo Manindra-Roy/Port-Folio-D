@@ -26,12 +26,12 @@ const Works = () => {
 
   if (isMobileXs) {
     useGSAP(() => {
-      gsap.to("#work", {
+      gsap.to("#works", {
         scale: 0.95,
         scrollTrigger: {
-          trigger: "#work",
-          start: "bottom 90%",
-          end: "bottom 10%",
+          trigger: "#works",
+          start: "bottom 80%",
+          end: "bottom 20%",
           scrub: true,
           markers: false,
         },
