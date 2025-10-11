@@ -46,14 +46,14 @@ const ServiceSummary = () => {
     >
       <div
         id="title-service-1"
-        className={`${isMobileXs ? "-translate-x-40" : ""}`}
+        className={`${isMobileXs ? "-translate-x-40 text-2xl" : ""}`}
       >
         <p>Architucture</p>
       </div>
       <div
         id="title-service-2"
         className={`flex items-center justify-center gap-3 ${
-          isMobileXs ? "translate-x-46" : "translate-x-16"
+          isMobileXs ? "translate-x-46 text-2xl" : "translate-x-16"
         }`}
       >
         <p className="font-normal">Development</p>
@@ -62,7 +62,7 @@ const ServiceSummary = () => {
       </div>
       <div
         id="title-service-3"
-        className={`flex items-center justify-center gap-3 ${isMobileXs?"-translate-x-49":"-translate-x-48"}`}
+        className={`flex items-center justify-center gap-3 ${isMobileXs?"-translate-x-49 text-2xl":"-translate-x-48"}`}
       >
         <p>APIs</p>
         <div className="w-10 h-1 md:w-32 bg-gold" />
@@ -70,7 +70,7 @@ const ServiceSummary = () => {
         <div className="w-10 h-1 md:w-32 bg-gold" />
         <p>Scalability</p>
       </div>
-      <div id="title-service-4" className={`${isMobileXs?"translate-x-44":"translate-x-48"}`}>
+      <div id="title-service-4" className={`${isMobileXs?"translate-x-44 text-2xl":"translate-x-48"}`}>
         <p>Databases</p>
       </div>
     </section>

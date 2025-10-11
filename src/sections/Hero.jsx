@@ -5,14 +5,23 @@ import { useMediaQuery } from "react-responsive";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import AnimatedHomeSection from "../components/AnimatedHomeSection";
 const Hero = () => {
+  const isMobileXs = useMediaQuery({ maxWidth: 360 });
   const isMobileSm = useMediaQuery({ maxWidth: 640 });
   const isMobileMd = useMediaQuery({ maxWidth: 768 });
   const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
   const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
-  const text = `I help growing brands and startups gain an
+  const text = `${
+    isMobileXs
+      ? `I help growing brands and 
+startups gain an unfair 
+advantage through 
+premium results 
+driven webs`
+      : `I help growing brands and startups gain an
 unfair advantage through premium
-results driven webs/apps`;
+results driven webs/apps`
+  }`;
   return (
     <section
       id="home"
