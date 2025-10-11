@@ -24,14 +24,14 @@ const Works = () => {
   const moveX = useRef(null);
   const moveY = useRef(null);
 
-  if (isMobileXs) {
+  if (isMobileXs || isMobileSm) {
     useGSAP(() => {
       gsap.to("#work", {
         scale: 0.95,
         scrollTrigger: {
           trigger: "#work",
-          start: "bottom 80%",
-          end: "bottom 20%",
+          start: "bottom 99%",
+          end: "bottom 1%",
           scrub: true,
           markers: false,
         },
@@ -124,7 +124,7 @@ const Works = () => {
     <section
       id="work"
       className={`flex flex-col min-h-screen ${
-        isMobileXs ? "bg-gold rounded-t-4xl rounded-b-4xl" : "bg-whicte"
+        isMobileXs || isMobileSm ? "bg-gold rounded-t-4xl rounded-b-4xl" : "bg-whicte"
       }`}
     >
       <AnimatedHeaderSection
@@ -166,7 +166,7 @@ const Works = () => {
             {/* framework */}
             <div
               className={`flex px-10 text-xs leading-loose transtion-all duration-500 md:text-sm ${
-                isMobileXs ? "gap-x-2" : "gap-x-5 uppercase"
+                isMobileXs || isMobileSm ? "gap-x-2 justify-center" : "gap-x-5 uppercase"
               } md:group-hover:px-12`}
             >
               {project.frameworks.map((framework) => (

@@ -57,21 +57,21 @@ const Services = () => {
             <div className="flex flex-col gap-6">
               <h2
                 className={`${
-                  isMobileXs ? "text-2xl" : "text-4xl"
+                  isMobileXs || isMobileSm? "text-2xl" : "text-4xl"
                 } lg:text-5xl`}
               >
                 {service.title}
               </h2>
               <p
                 className={`${
-                  isMobileXs ? "text-lg" : "text-xl"
+                  isMobileXs || isMobileSm? "text-lg" : "text-xl"
                 } leading-relaxed tracking-widest lg:text-2xl text-white/60 text-pretty`}
               >
                 {service.description}
               </p>
               <div
                 className={`flex flex-col gap-2 ${
-                  isMobileXs ? "text-xl" : "text-2xl"
+                  isMobileXs || isMobileSm? "text-xl" : "text-2xl"
                 } sm:gap-4 lg:text-3xl text-white/80`}
               >
                 {service.items.map((item, itemIndex) => (

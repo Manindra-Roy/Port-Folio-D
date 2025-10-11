@@ -12,7 +12,7 @@ const Hero = () => {
   const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const text = `${
-    isMobileXs
+    isMobileXs || isMobileSm
       ? `I help growing brands and 
 startups gain an unfair 
 advantage through 

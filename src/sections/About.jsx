@@ -60,7 +60,7 @@ const About = () => {
           alt="man"
           className="w-md rounded-3xl"
         />
-        <AnimatedTextLines text={aboutText} className={`w-full ${isMobileXs?"text-lg":""}`} />
+        <AnimatedTextLines text={aboutText} className={`w-full ${isMobileXs || isMobileSm?"text-lg":""}`} />
       </div>
     </section>
   );

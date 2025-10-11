@@ -11,14 +11,14 @@ const ServiceSummary = () => {
   const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
   useGSAP(() => {
     gsap.to("#title-service-1", {
-      xPercent: isMobileXs ? 350 : 20,
+      xPercent: isMobileXs || isMobileSm ? 350 : 20,
       scrollTrigger: {
         target: "#title-service-1",
         scrub: true,
       },
     });
     gsap.to("#title-service-2", {
-      xPercent: isMobileXs ? -400 : -30,
+      xPercent: isMobileXs || isMobileSm ? -400 : -30,
       scrollTrigger: {
         target: "#title-service-2",
         scrub: true,
@@ -26,14 +26,14 @@ const ServiceSummary = () => {
     });
     gsap.to("#title-service-3", {
       delay: 2,
-      xPercent: isMobileXs ? 400 : 100,
+      xPercent: isMobileXs || isMobileSm ? 400 : 100,
       scrollTrigger: {
         target: "#title-service-3",
         scrub: true,
       },
     });
     gsap.to("#title-service-4", {
-      xPercent: isMobileXs ? -350 : -100,
+      xPercent: isMobileXs || isMobileSm ? -350 : -100,
       scrollTrigger: {
         target: "#title-service-4",
         scrub: true,
@@ -46,14 +46,14 @@ const ServiceSummary = () => {
     >
       <div
         id="title-service-1"
-        className={`${isMobileXs ? "-translate-x-40 text-2xl" : ""}`}
+        className={`${isMobileXs || isMobileSm ? "-translate-x-40 text-2xl" : ""}`}
       >
         <p>Architucture</p>
       </div>
       <div
         id="title-service-2"
         className={`flex items-center justify-center gap-3 ${
-          isMobileXs ? "translate-x-46 text-2xl" : "translate-x-16"
+          isMobileXs || isMobileSm ? "translate-x-46 text-2xl" : "translate-x-16"
         }`}
       >
         <p className="font-normal">Development</p>
@@ -62,7 +62,7 @@ const ServiceSummary = () => {
       </div>
       <div
         id="title-service-3"
-        className={`flex items-center justify-center gap-3 ${isMobileXs?"-translate-x-49 text-2xl":"-translate-x-48"}`}
+        className={`flex items-center justify-center gap-3 ${isMobileXs || isMobileSm?"-translate-x-49 text-2xl":"-translate-x-48"}`}
       >
         <p>APIs</p>
         <div className="w-10 h-1 md:w-32 bg-gold" />
@@ -70,7 +70,7 @@ const ServiceSummary = () => {
         <div className="w-10 h-1 md:w-32 bg-gold" />
         <p>Scalability</p>
       </div>
-      <div id="title-service-4" className={`${isMobileXs?"translate-x-44 text-2xl":"translate-x-48"}`}>
+      <div id="title-service-4" className={`${isMobileXs || isMobileSm?"translate-x-44 text-2xl":"translate-x-48"}`}>
         <p>Databases</p>
       </div>
     </section>

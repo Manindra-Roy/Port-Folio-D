@@ -42,7 +42,7 @@ const ContactSummary = () => {
   return (
     <section
       ref={containerRef}
-      className={`${isMobileXs ? "hidden" : ""} flex flex-col items-center justify-between min-h-screen gap-12 mt-16`}
+      className={`${isMobileXs || isMobileSm? "hidden" : ""} flex flex-col items-center justify-between min-h-screen gap-12 mt-16`}
     >
       <Marquee items={items} />
       <div className="overflow-hidden font-light text-center contact-text-responsive">

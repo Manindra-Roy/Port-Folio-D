@@ -49,21 +49,21 @@ const Contact = () => {
         <div className="flex px-10 font-light text-white uppercase lg:text-[32px] text-[26px] leading-none mb-10">
           <div className="flex flex-col w-full gap-10">
             <div className="social-link">
-              <h2 className={`${isMobileXs?"text-2xl":""}`}>E-mail</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""}`}>E-mail</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <p className="text-xl tracking-wider lowercase md:text-2xl lg:text-3xl">
                 Technet0110@gmail.com
               </p>
             </div>
             <div className="social-link">
-              <h2 className={`${isMobileXs?"text-2xl":""}`}>Phone</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""}`}>Phone</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <p className="text-xl lowercase md:text-2xl lg:text-3xl">
                 +91 8436438750
               </p>
             </div>
             <div className="social-link">
-              <h2 className={`${isMobileXs?"text-2xl":""}`}>Social Media</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""}`}>Social Media</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <div className="flex flex-wrap gap-2">
                 {socials.map((social, index) => (
@@ -82,7 +82,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Marquee items={items} className={`${isMobileXs ? "hidden" : ""} text-white bg-transparent`} />
+      <Marquee items={items} className={`${isMobileXs || isMobileSm? "hidden" : ""} text-white bg-transparent`} />
     </section>
   );
 };
