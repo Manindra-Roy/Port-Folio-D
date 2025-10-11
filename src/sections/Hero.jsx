@@ -40,7 +40,7 @@ results driven webs/apps`
         <Canvas
           shadows
           camera={{
-            position: [0, 0, isMobile ? -30 : -10],
+            position: [0, 0, isMobile ? -27.5 : -10],
             fov: 17.5,
             near: 1,
             far: isMobile ? 50 : 20,
@@ -50,7 +50,7 @@ results driven webs/apps`
           <Float
             speed={0.5}
             rotationIntensity={0}
-            floatIntensity={isMobile ? 2 : 1}
+            floatIntensity={isMobile ? 2.5 : 1}
           >
             <Planet scale={isMobile ? 0.7 : 1} />
           </Float>

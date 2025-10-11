@@ -30,8 +30,8 @@ const Works = () => {
         scale: 0.95,
         scrollTrigger: {
           trigger: "#work",
-          start: "bottom 80%",
-          end: "bottom 20%",
+          start: "bottom 90%",
+          end: "bottom 10%",
           scrub: true,
           markers: false,
         },
