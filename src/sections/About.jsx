@@ -7,8 +7,8 @@ import { useMediaQuery } from "react-responsive";
 
 const About = () => {
   const isMobileXs = useMediaQuery({ maxWidth: 360 });
-  const isMobileSm = useMediaQuery({ maxWidth: 640 });
-  const isMobileMd = useMediaQuery({ maxWidth: 768 });
+  const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
   const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
   const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
   const text = `Passionate about clean architecture
@@ -29,7 +29,7 @@ const About = () => {
         start: "bottom 80%",
         end: "bottom 20%",
         scrub: true,
-        markers: false,
+        markers: true,
       },
       ease: "power1.inOut",
     });

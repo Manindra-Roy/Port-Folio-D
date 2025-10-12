@@ -8,10 +8,10 @@ import { useMediaQuery } from "react-responsive";
 
 const Works = () => {
   const isMobileXs = useMediaQuery({ maxWidth: 360 });
-  const isMobileSm = useMediaQuery({ maxWidth: 640 });
-  const isMobileMd = useMediaQuery({ maxWidth: 768 });
-  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
-  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
+  const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
   const overlayRefs = useRef([]);
   const previewRef = useRef(null);
 
@@ -30,10 +30,10 @@ const Works = () => {
         scale: 0.95,
         scrollTrigger: {
           trigger: "#work",
-          start: "bottom 99%",
-          end: "bottom 1%",
+          start: "bottom 80%",
+          end: "bottom 20%",
           scrub: true,
-          markers: false,
+          markers: true,
         },
         ease: "power1.inOut",
       });
@@ -124,7 +124,9 @@ const Works = () => {
     <section
       id="work"
       className={`flex flex-col min-h-screen ${
-        isMobileXs || isMobileSm ? "bg-gold rounded-t-4xl rounded-b-4xl" : "bg-whicte"
+        isMobileXs || isMobileSm
+          ? "bg-gold rounded-t-4xl rounded-b-4xl"
+          : "bg-whicte"
       }`}
     >
       <AnimatedHeaderSection
@@ -166,7 +168,9 @@ const Works = () => {
             {/* framework */}
             <div
               className={`flex px-10 text-xs leading-loose transtion-all duration-500 md:text-sm ${
-                isMobileXs || isMobileSm ? "gap-x-2 justify-center" : "gap-x-5 uppercase"
+                isMobileXs || isMobileSm
+                  ? "gap-x-2 justify-center"
+                  : "gap-x-5 uppercase"
               } md:group-hover:px-12`}
             >
               {project.frameworks.map((framework) => (
@@ -196,7 +200,10 @@ const Works = () => {
         {/* desktop Flaoting preview image */}
         <div
           ref={previewRef}
-          className="fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[650px] md:block hidden opacity-0"
+          className={`fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[650px] md:block hidden opacity-0`}
+          style={{
+            width: isMobileMd ? "400px" : "",
+          }}
         >
           {currentIndex !== null && (
             <img

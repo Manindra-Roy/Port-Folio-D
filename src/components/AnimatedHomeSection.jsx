@@ -13,10 +13,10 @@ const AnimatedHomeSection = ({
   withScrollTrigger = false,
 }) => {
   const isMobileXs = useMediaQuery({ maxWidth: 360 });
-  const isMobileSm = useMediaQuery({ maxWidth: 640 });
-  const isMobileMd = useMediaQuery({ maxWidth: 768 });
-  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
-  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
+  const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
   console.log(window.innerWidth);
   const contextRef = useRef(null);
@@ -56,7 +56,7 @@ const AnimatedHomeSection = ({
           className={`flex flex-col justify-center gap-12 pt-16 sm:gap-16`}
         >
           <p
-            className={`${isMobileXs||isMobileSm?"text-xs text-center":"text-sm"} font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
+            className={`${isMobileXs||isMobileSm?"text-xs text-center":"text-sm"} ${isMobileMd?"text-center":""} font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
           >
             {subTitle}
           </p>
@@ -64,21 +64,21 @@ const AnimatedHomeSection = ({
             <h1
               className={`flex flex-col ${
                 isMobileXs || isMobileSm ? "gap-6" : "gap-12"
-              } uppercase banner-text-responsive sm:gap-16 md:block ${textColor} ${isMobileXs||isMobileSm?"text-5xl text-center":""}`}
+              } uppercase banner-text-responsive sm:gap-16 md:block ${textColor} ${isMobileXs||isMobileSm ||isMobileMd?"text-5xl text-center":""}`} style={{fontSize:isMobileMd?"115px":""}}
             >
               {titleParts.map((part, index) => (
-                <span key={index}>{part} </span>
+                <span style={{display:isMobileMd?"block":"" , paddingTop:isMobileMd?"25px":""}} key={index}>{part} </span>
               ))}
             </h1>
           </div>
         </div>
       </div>
-      <div className={`relative ${isMobileXs || isMobileSm?"px-10":"px-10"} ${textColor}`}>
+      <div className={`relative ${isMobileXs || isMobileSm?"px-10":"px-10"} ${textColor}`} style={{paddingBottom:`${isMobileXs||isMobileSm || isMobileMd?"7.5dvh":""}`}}>
         <div className="absolute inset-x-0 border-t-2" />
         <div className="py-12 sm:py-16 text-end">
           <AnimatedHomeTextLines
             text={text}
-            className={`font-light uppercase value-text-responsive ${textColor} ${isMobileXs||isMobileSm?"text-lg text-center":""}`}
+            className={`font-light uppercase value-text-responsive ${textColor} ${isMobileXs||isMobileSm?"text-lg text-center": isMobileMd?"text-center text-2xl":""}`}
           />
         </div>
       </div>

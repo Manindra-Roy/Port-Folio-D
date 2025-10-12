@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useMediaQuery } from "react-responsive";
 
 export function Planet(props) {
+  const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const group = useRef(null);
   const { nodes, materials, animations } = useGLTF("/models/Planet.glb");
@@ -52,7 +53,7 @@ export function Planet(props) {
       {...props}
       dispose={null}
       scale={0.01}
-      position={[0, isMobile ? 2 : 0.5, 0]}
+      position={[0, isMobileMd ? 1.25 : isMobile ? 2 : 0.5, 0]}
       rotation={[0, Math.PI / 2, 0]}
     >
       <group name="Sketchfab_Scene">

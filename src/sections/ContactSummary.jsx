@@ -6,10 +6,10 @@ import { useMediaQuery } from "react-responsive";
 
 const ContactSummary = () => {
    const isMobileXs = useMediaQuery({ maxWidth: 360 });
-  const isMobileSm = useMediaQuery({ maxWidth: 640 });
-  const isMobileMd = useMediaQuery({ maxWidth: 768 });
-  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
-  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
+  const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
   const containerRef = useRef(null);
   const items = [
     "Innovation",

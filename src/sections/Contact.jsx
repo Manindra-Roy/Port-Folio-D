@@ -7,10 +7,10 @@ import { useMediaQuery } from "react-responsive";
 
 const Contact = () => {
   const isMobileXs = useMediaQuery({ maxWidth: 360 });
-  const isMobileSm = useMediaQuery({ maxWidth: 640 });
-  const isMobileMd = useMediaQuery({ maxWidth: 768 });
-  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
-  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
+  const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
   const text = `Got a question, how or project Idea?
     WE’D love to hear from you and discus further!`;
   const items = [
@@ -49,21 +49,21 @@ const Contact = () => {
         <div className="flex px-10 font-light text-white uppercase lg:text-[32px] text-[26px] leading-none mb-10">
           <div className="flex flex-col w-full gap-10">
             <div className="social-link">
-              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""}`}>E-mail</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd?"text-4xl":""}`}>E-mail</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <p className="text-xl tracking-wider lowercase md:text-2xl lg:text-3xl">
                 Technet0110@gmail.com
               </p>
             </div>
             <div className="social-link">
-              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""}`}>Phone</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd?"text-4xl":""}`}>Phone</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <p className="text-xl lowercase md:text-2xl lg:text-3xl">
                 +91 8436438750
               </p>
             </div>
             <div className="social-link">
-              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""}`}>Social Media</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd?"text-4xl":""}`}>Social Media</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <div className="flex flex-wrap gap-2">
                 {socials.map((social, index) => (

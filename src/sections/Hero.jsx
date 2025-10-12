@@ -6,10 +6,10 @@ import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import AnimatedHomeSection from "../components/AnimatedHomeSection";
 const Hero = () => {
   const isMobileXs = useMediaQuery({ maxWidth: 360 });
-  const isMobileSm = useMediaQuery({ maxWidth: 640 });
-  const isMobileMd = useMediaQuery({ maxWidth: 768 });
-  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
-  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
+  const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const text = `${
     isMobileXs || isMobileSm
@@ -40,7 +40,7 @@ results driven webs/apps`
         <Canvas
           shadows
           camera={{
-            position: [0, 0, isMobile ? -27.5 : -10],
+            position: [0, 0, isMobileMd ? -17.5 : isMobile ? -27.5 : -10],
             fov: 17.5,
             near: 1,
             far: isMobile ? 50 : 20,
@@ -50,7 +50,7 @@ results driven webs/apps`
           <Float
             speed={0.5}
             rotationIntensity={0}
-            floatIntensity={isMobile ? 2.5 : 1}
+            floatIntensity={isMobileMd ? 2 : isMobile ? 2.5 : 1}
           >
             <Planet scale={isMobile ? 0.7 : 1} />
           </Float>
