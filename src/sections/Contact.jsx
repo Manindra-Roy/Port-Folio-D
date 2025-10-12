@@ -49,21 +49,21 @@ const Contact = () => {
         <div className="flex px-10 font-light text-white uppercase lg:text-[32px] text-[26px] leading-none mb-10">
           <div className="flex flex-col w-full gap-10">
             <div className="social-link">
-              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd?"text-4xl":""}`}>E-mail</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd || isDeviceLg?"text-4xl":""}`}>E-mail</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <p className="text-xl tracking-wider lowercase md:text-2xl lg:text-3xl">
                 Technet0110@gmail.com
               </p>
             </div>
             <div className="social-link">
-              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd?"text-4xl":""}`}>Phone</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd || isDeviceLg?"text-4xl":""}`}>Phone</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <p className="text-xl lowercase md:text-2xl lg:text-3xl">
                 +91 8436438750
               </p>
             </div>
             <div className="social-link">
-              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd?"text-4xl":""}`}>Social Media</h2>
+              <h2 className={`${isMobileXs || isMobileSm?"text-2xl":""||isMobileMd || isDeviceLg?"text-4xl":""}`}>Social Media</h2>
               <div className="w-full h-px my-2 bg-white/30" />
               <div className="flex flex-wrap gap-2">
                 {socials.map((social, index) => (

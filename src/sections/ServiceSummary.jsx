@@ -49,7 +49,7 @@ const ServiceSummary = () => {
         className={`${
           isMobileXs || isMobileSm
             ? "-translate-x-40 text-2xl"
-            : "" || isMobileMd
+            : "" || isMobileMd || isDeviceLg
             ? "text-5xl"
             : ""
         }`}
@@ -61,7 +61,7 @@ const ServiceSummary = () => {
         className={`flex items-center justify-center gap-3 ${
           isMobileXs || isMobileSm
             ? "translate-x-46 text-2xl"
-            : isMobileMd
+            : isMobileMd || isDeviceLg
             ? "text-5xl"
             : "translate-x-16"
         }`}
@@ -78,7 +78,7 @@ const ServiceSummary = () => {
         className={`flex items-center justify-center gap-3 ${
           isMobileXs || isMobileSm
             ? "-translate-x-49 text-2xl"
-            : isMobileMd
+            : isMobileMd || isDeviceLg
             ? "text-5xl -translate-x-35"
             : "-translate-x-48"
         }`}
@@ -100,8 +100,8 @@ const ServiceSummary = () => {
         className={`${
           isMobileXs || isMobileSm
             ? "translate-x-44 text-2xl"
-            : isMobileMd
-            ? "text-5xl"
+            : isMobileMd || isDeviceLg
+            ? "text-5xl translate-x-60"
             : "translate-x-48"
         }`}
       >

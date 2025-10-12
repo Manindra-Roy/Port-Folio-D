@@ -14,8 +14,8 @@ const AnimatedHeaderSection = ({
   const isMobileXs = useMediaQuery({ maxWidth: 360 });
   const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
   const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
-  const isDeviceLg = useMediaQuery({ maxWidth: 1024 });
-  const isDeviceXl = useMediaQuery({ maxWidth: 1280 });
+  const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const contextRef = useRef(null);
   const headerRef = useRef(null);
@@ -53,13 +53,26 @@ const AnimatedHeaderSection = ({
           className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
         >
           <p
-            className={`${isMobileXs||isMobileSm?"text-xs text-center": isMobileMd?"text-center":"text-sm"} font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
+            className={`${
+              isMobileXs || isMobileSm
+                ? "text-xs text-center"
+                : isMobileMd
+                ? "text-center"
+                : "text-sm"
+            } font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
           >
             {subTitle}
           </p>
           <div className="px-10">
             <h1
-              className={`flex flex-col gap-12 uppercase banner-text-responsive sm:gap-16 md:block ${textColor} ${isMobileXs || isMobileSm?"text-5xl text-center": isMobileMd?"text-center":""}`} style={{fontSize:isMobileMd?"115px":""}}
+              className={`flex flex-col gap-12 uppercase banner-text-responsive sm:gap-16 md:block ${textColor} ${
+                isMobileXs || isMobileSm
+                  ? "text-5xl text-center"
+                  : isMobileMd
+                  ? "text-center"
+                  : ""
+              }`}
+              style={{ fontSize: isMobileMd ? "115px" : isDeviceLg ? "95px" : "" }}
             >
               {titleParts.map((part, index) => (
                 <span key={index}>{part} </span>
@@ -73,7 +86,13 @@ const AnimatedHeaderSection = ({
         <div className="py-12 sm:py-16 text-end">
           <AnimatedTextLines
             text={text}
-            className={`font-light uppercase value-text-responsive ${textColor} ${isMobileXs || isMobileSm?"text-lg text-center": isMobileMd?"text-2xl text-center":""}`}
+            className={`font-light uppercase value-text-responsive ${textColor} ${
+              isMobileXs || isMobileSm
+                ? "text-lg text-center"
+                : isMobileMd
+                ? "text-2xl text-center"
+                : ""
+            }`}
           />
         </div>
       </div>
