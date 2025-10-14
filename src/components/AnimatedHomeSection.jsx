@@ -57,7 +57,11 @@ const AnimatedHomeSection = ({
         >
           <p
             className={`${
-              isMobileXs || isMobileSm ? "text-xs text-center" :isMobileMd ? "text-center" : "text-sm"
+              isMobileXs || isMobileSm
+                ? "text-xs text-center"
+                : isMobileMd
+                ? "text-center"
+                : "text-sm"
             } font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
           >
             {subTitle}
