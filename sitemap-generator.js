@@ -6,9 +6,7 @@ const websiteUrl = 'https://www.techtentacles.xyz';
 
 // Add all the routes/pages you want in your sitemap here
 const pages = [
-  '/',
-  '/about',
-  '/contact'
+  '/'
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
