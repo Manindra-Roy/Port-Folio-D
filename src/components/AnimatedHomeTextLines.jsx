@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 export const AnimatedHomeTextLines = ({ text, className }) => {
+  const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
   const isFHd = useMediaQuery({ minWidth: 1920, maxWidth: 1920 });
   const containerRef = useRef(null);
   const lineRefs = useRef([]);
@@ -29,7 +30,7 @@ export const AnimatedHomeTextLines = ({ text, className }) => {
     <div
       ref={containerRef}
       className={className}
-      style={{ fontSize: isFHd ? "27.5px" : "" }}
+      style={{ fontSize: isFHd ? "27.5px" :isDeviceXl?"20px": "" }}
     >
       {lines.map((line, index) => (
         <span

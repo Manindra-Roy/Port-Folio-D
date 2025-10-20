@@ -59,6 +59,7 @@ const Services = () => {
                 className={`${
                   isMobileXs || isMobileSm? "text-2xl" : "text-4xl"
                 } lg:text-5xl`}
+                style={{fontSize:isDeviceXl?"35px":""}}
               >
                 {service.title}
               </h2>
@@ -66,6 +67,7 @@ const Services = () => {
                 className={`${
                   isMobileXs || isMobileSm? "text-lg" : "text-xl"
                 } leading-relaxed tracking-widest lg:text-2xl text-white/60 text-pretty`}
+                 style={{fontSize:isDeviceXl?"18px":""}}
               >
                 {service.description}
               </p>
@@ -76,7 +78,9 @@ const Services = () => {
               >
                 {service.items.map((item, itemIndex) => (
                   <div key={`item-${index}-${itemIndex}`}>
-                    <h3 className="flex">
+                    <h3 className="flex"
+                     style={{fontSize:isDeviceXl?"30px":""}}
+                    >
                       <span className="mr-12 text-lg text-white/30">
                         0{itemIndex + 1}
                       </span>

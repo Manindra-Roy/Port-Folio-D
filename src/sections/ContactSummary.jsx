@@ -50,7 +50,7 @@ const ContactSummary = () => {
       <Marquee items={items} />
       <div
         className="overflow-hidden font-light text-center contact-text-responsive"
-        style={{ fontSize: isFHd ? "92.5px" : "" }}
+        style={{ fontSize: isFHd ? "92.5px" :isDeviceXl?"65px": "" }}
       >
         <p>
           “ Let’s build a <br />

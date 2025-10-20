@@ -202,7 +202,7 @@ const Works = () => {
           ref={previewRef}
           className={`fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[650px] md:block hidden opacity-0`}
           style={{
-            width: isMobileMd ? "400px" : "",
+            width: isMobileMd ? "400px" :isDeviceXl?"500px": "",
           }}
         >
           {currentIndex !== null && (

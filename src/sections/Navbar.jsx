@@ -3,6 +3,7 @@ import { socials } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-scroll";
+import { useMediaQuery } from "react-responsive";
 
 const Navbar = () => {
   const navRef = useRef(null);
@@ -14,6 +15,13 @@ const Navbar = () => {
   const iconTl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [showBurger, setShowBurger] = useState(true);
+  const isMobileXs = useMediaQuery({ maxWidth: 360 });
+  const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
+  const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
+  const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+  const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
+  const isFHd = useMediaQuery({ minWidth: 1920, maxWidth: 1920 });
+  const isMobile = useMediaQuery({ maxWidth: 853 });
 
   // NEW: Create a ref for the burger icon itself
   const burgerRef = useRef(null);
@@ -129,7 +137,9 @@ const Navbar = () => {
         ref={navRef}
         className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
       >
-        <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
+        <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl"
+        style={{fontSize:isDeviceXl?"65px":""}}
+        >
           {["home", "services", "about", "work", "contact"].map(
             (section, index) => (
               <div key={index} ref={(el) => (linksRef.current[index] = el)}>

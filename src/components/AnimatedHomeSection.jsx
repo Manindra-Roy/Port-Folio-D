@@ -65,7 +65,7 @@ const AnimatedHomeSection = ({
                 : "text-sm"
             } font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
             style={{
-              paddingLeft: isFHd ? "50px" : "",
+              paddingLeft: isFHd ? "50px" :isDeviceXl?"50px": "",
             }}
           >
             {subTitle}
@@ -86,6 +86,8 @@ const AnimatedHomeSection = ({
                   ? "95px"
                   : isFHd
                   ? "110px"
+                  : isDeviceXl
+                  ? "83.3px"
                   : "",
               }}
             >
@@ -115,7 +117,7 @@ const AnimatedHomeSection = ({
         }}
       >
         <div className="absolute inset-x-0 border-t-2" />
-        <div className="py-12 sm:py-16 text-end">
+        <div className="py-12 sm:py-16 text-end" style={{paddingTop:isDeviceXl?"20px":""}}>
           <AnimatedHomeTextLines
             text={text}
             className={`font-light uppercase value-text-responsive ${textColor} ${

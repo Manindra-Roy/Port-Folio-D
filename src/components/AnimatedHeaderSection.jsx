@@ -80,6 +80,8 @@ const AnimatedHeaderSection = ({
                   ? "95px"
                   : isFHd
                   ? "110px"
+                  : isDeviceXl
+                  ? "83.3px"
                   : "",
               }}
             >
