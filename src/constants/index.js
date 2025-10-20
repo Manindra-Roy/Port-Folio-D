@@ -171,10 +171,10 @@ export const projects = [
   },
 ];
 export const socials = [
-  { name: "Instagram", href: "https://www.instagram.com" },
+  { name: "Instagram", href: "https://www.instagram.com/manindra_roy_official" },
   {
     name: "Youtube",
-    href: "https://www.youtube.com",
+    href: "https://www.youtube.com/@TechTentaclesOfficial",
   },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/manindraroyofficial" },
   { name: "GitHub", href: "https://github.com/Manindra-Roy" },
