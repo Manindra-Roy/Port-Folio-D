@@ -2,8 +2,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 export const AnimatedHomeTextLines = ({ text, className }) => {
+  const isFHd = useMediaQuery({ minWidth: 1920, maxWidth: 1920 });
   const containerRef = useRef(null);
   const lineRefs = useRef([]);
   const lines = text.split("\n").filter((line) => line.trim() !== "");
@@ -13,7 +15,7 @@ export const AnimatedHomeTextLines = ({ text, className }) => {
         y: 100,
         opacity: 0,
         duration: 1,
-        delay: 2,
+        delay: 1,
         stagger: 0.45,
         ease: "back.out",
         scrollTrigger: {
@@ -24,7 +26,11 @@ export const AnimatedHomeTextLines = ({ text, className }) => {
   });
 
   return (
-    <div ref={containerRef} className={className}>
+    <div
+      ref={containerRef}
+      className={className}
+      style={{ fontSize: isFHd ? "27.5px" : "" }}
+    >
       {lines.map((line, index) => (
         <span
           key={index}

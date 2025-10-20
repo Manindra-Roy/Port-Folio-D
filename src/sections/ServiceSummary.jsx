@@ -9,6 +9,7 @@ const ServiceSummary = () => {
   const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
   const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
   const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
+  const isFHd = useMediaQuery({ minWidth: 1920, maxWidth: 1920 });
   useGSAP(() => {
     gsap.to("#title-service-1", {
       xPercent: isMobileXs || isMobileSm ? 350 : 20,
@@ -53,6 +54,7 @@ const ServiceSummary = () => {
             ? "text-5xl"
             : ""
         }`}
+        style={{ fontSize: isFHd ? "92.5px" : "" }}
       >
         <p>Architucture</p>
       </div>

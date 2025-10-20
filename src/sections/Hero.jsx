@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { Planet } from "../components/Planet";
+import { BatMan } from "../components/BatMan";
 import { Environment, Float, Lightformer } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
@@ -48,11 +48,11 @@ results driven webs/apps`
         >
           <ambientLight intensity={0.5} />
           <Float
-            speed={0.5}
+            speed={0}
             rotationIntensity={0}
             floatIntensity={isMobileMd ? 2 : isMobile ? 2.5 : 1}
           >
-            <Planet scale={isMobile ? 0.7 : 1} />
+            <BatMan scale={isMobile ? 0.7 : 1} />
           </Float>
           <Environment resolution={256}>
             <group rotation={[-Math.PI / 3, 4, 1]}>

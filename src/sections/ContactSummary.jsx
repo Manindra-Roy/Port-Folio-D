@@ -5,11 +5,12 @@ import gsap from "gsap";
 import { useMediaQuery } from "react-responsive";
 
 const ContactSummary = () => {
-   const isMobileXs = useMediaQuery({ maxWidth: 360 });
+  const isMobileXs = useMediaQuery({ maxWidth: 360 });
   const isMobileSm = useMediaQuery({ minWidth: 361, maxWidth: 640 });
   const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
   const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
   const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
+  const isFHd = useMediaQuery({ minWidth: 1920, maxWidth: 1920 });
   const containerRef = useRef(null);
   const items = [
     "Innovation",
@@ -42,10 +43,15 @@ const ContactSummary = () => {
   return (
     <section
       ref={containerRef}
-      className={`${isMobileXs || isMobileSm? "hidden" : ""} flex flex-col items-center justify-between min-h-screen gap-12 mt-16`}
+      className={`${
+        isMobileXs || isMobileSm ? "hidden" : ""
+      } flex flex-col items-center justify-between min-h-screen gap-12 mt-16`}
     >
       <Marquee items={items} />
-      <div className="overflow-hidden font-light text-center contact-text-responsive">
+      <div
+        className="overflow-hidden font-light text-center contact-text-responsive"
+        style={{ fontSize: isFHd ? "92.5px" : "" }}
+      >
         <p>
           “ Let’s build a <br />
           <span className="font-normal">memorable</span> &{" "}

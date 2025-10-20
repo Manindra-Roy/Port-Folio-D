@@ -2,8 +2,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 export const AnimatedTextLines = ({ text, className }) => {
+  const isFHd = useMediaQuery({ minWidth: 1920, maxWidth: 1920 });
   const containerRef = useRef(null);
   const lineRefs = useRef([]);
   const lines = text.split("\n").filter((line) => line.trim() !== "");
@@ -23,7 +25,11 @@ export const AnimatedTextLines = ({ text, className }) => {
   });
 
   return (
-    <div ref={containerRef} className={className}>
+    <div
+      ref={containerRef}
+      className={className}
+      style={{ fontSize: isFHd ? "27.5px" : "" }}
+    >
       {lines.map((line, index) => (
         <span
           key={index}

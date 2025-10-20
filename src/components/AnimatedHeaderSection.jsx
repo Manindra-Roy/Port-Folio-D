@@ -16,6 +16,7 @@ const AnimatedHeaderSection = ({
   const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
   const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
   const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
+  const isFHd = useMediaQuery({ minWidth: 1920, maxWidth: 1920 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const contextRef = useRef(null);
   const headerRef = useRef(null);
@@ -72,7 +73,15 @@ const AnimatedHeaderSection = ({
                   ? "text-center"
                   : ""
               }`}
-              style={{ fontSize: isMobileMd ? "115px" : isDeviceLg ? "95px" : "" }}
+              style={{
+                fontSize: isMobileMd
+                  ? "115px"
+                  : isDeviceLg
+                  ? "95px"
+                  : isFHd
+                  ? "110px"
+                  : "",
+              }}
             >
               {titleParts.map((part, index) => (
                 <span key={index}>{part} </span>

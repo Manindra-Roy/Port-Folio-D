@@ -17,6 +17,7 @@ const AnimatedHomeSection = ({
   const isMobileMd = useMediaQuery({ minWidth: 641, maxWidth: 768 });
   const isDeviceLg = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
   const isDeviceXl = useMediaQuery({ minWidth: 1025, maxWidth: 1280 });
+  const isFHd = useMediaQuery({ minWidth: 1920, maxWidth: 1920 });
   const isMobile = useMediaQuery({ maxWidth: 853 });
   console.log(window.innerWidth);
   const contextRef = useRef(null);
@@ -34,7 +35,7 @@ const AnimatedHomeSection = ({
     tl.from(contextRef.current, {
       y: "50vh",
       duration: 1,
-      delay: 2,
+      delay: 0.5,
       ease: "circ.out",
     });
     tl.from(
@@ -63,6 +64,9 @@ const AnimatedHomeSection = ({
                 ? "text-center"
                 : "text-sm"
             } font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
+            style={{
+              paddingLeft: isFHd ? "50px" : "",
+            }}
           >
             {subTitle}
           </p>
@@ -76,7 +80,13 @@ const AnimatedHomeSection = ({
                   : ""
               }`}
               style={{
-                fontSize: isMobileMd ? "115px" : isDeviceLg ? "95px" : "",
+                fontSize: isMobileMd
+                  ? "115px"
+                  : isDeviceLg
+                  ? "95px"
+                  : isFHd
+                  ? "110px"
+                  : "",
               }}
             >
               {titleParts.map((part, index) => (
@@ -100,7 +110,7 @@ const AnimatedHomeSection = ({
         } ${textColor}`}
         style={{
           paddingBottom: `${
-            isMobileXs || isMobileSm || isMobileMd || isDeviceLg ? "7.5dvh" : ""
+            isMobileXs || isMobileSm || isMobileMd || isDeviceLg ? "5dvh" : ""
           }`,
         }}
       >
